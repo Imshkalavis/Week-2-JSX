@@ -1,37 +1,60 @@
+/* ==========================================================================
+   RESET
+   Removes default browser spacing; box-sizing keeps padding inside width
+   ========================================================================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* ==========================================================================
+   PAGE LAYOUT
+   Centers the pricing cards on a warm off-white canvas
+   ========================================================================== */
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #f7f7f4;
+    background-color: #f7f7f4;       /* Page background */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    min-height: 100vh;               /* Full viewport height */
+    padding: 20px;                   /* Breathing room on small screens */
 }
+
+
+/* ==========================================================================
+   CARDS CONTAINER
+   Horizontal row of pricing cards
+   ========================================================================== */
 
 .cards-container {
     display: flex;
     flex-direction: row;
-    gap: 24px;
+    gap: 24px;                       /* Space between cards */
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start;         /* Cards align to top, not stretched */
 }
+
+
+/* ==========================================================================
+   CARD SHELL
+   Individual pricing card: fixed width, subtle background, rounded corners
+   ========================================================================== */
 
 .card {
     display: flex;
-    flex-direction: column;
-    min-height: 380px;
-    background-color: #f2f1ed;
+    flex-direction: column;          /* Stacks content + button vertically */
+    min-height: 380px;               /* Keeps both cards the same height */
+    background-color: #f2f1ed;       /* Card surface (slightly darker than page) */
     border-radius: 4px;
     padding: 16px;
     width: 320px;
-    flex-shrink: 0;
+    flex-shrink: 0;                  /* Prevents cards from squishing */
 }
 
 .card-top {
@@ -39,51 +62,69 @@ body {
     flex-direction: column;
 }
 
+
+/* ==========================================================================
+   TYPOGRAPHY — Title & Price
+   Plan name and pricing hierarchy
+   ========================================================================== */
+
 .card-title {
     font-size: 22px;
     line-height: 28px;
     font-weight: 400;
-    color: #26251e;
+    color: #26251e;                  /* Primary text — near-black warm tone */
     margin-bottom: 8px;
 }
 
 .card-price {
     font-size: 20px;
-    color: rgba(38, 37, 30, 0.5);
+    color: rgba(38, 37, 30, 0.5);    /* Muted price color (50% opacity) */
     display: inline-flex;
-    align-items: baseline;
+    align-items: baseline;           /* Aligns $20 and /mo. on text baseline */
 }
 
 .card-price-amount {
-    font-size: 22px;
+    font-size: 22px;                 /* Main price number — slightly larger */
     font-weight: 400;
     color: rgba(38, 37, 30, 0.5);
 }
 
 .card-price-period {
-    font-size: 14px;
+    font-size: 14px;                 /* "/mo." suffix — smaller, secondary */
     color: rgba(38, 37, 30, 0.5);
 }
 
+
+/* ==========================================================================
+   CONTENT AREA
+   "Includes" label and feature list spacing
+   ========================================================================== */
+
 .card-content {
-    margin-bottom: 32px;
+    margin-bottom: 32px;             /* Gap above the CTA button */
 }
 
 .includes-text {
     font-size: 16px;
-    color: rgba(38, 37, 30, 0.5);
+    color: rgba(38, 37, 30, 0.5);    /* Secondary label text */
     margin: 16px 0px;
 }
 
+
+/* ==========================================================================
+   FEATURE LIST
+   Checkmark + text rows; default bullets removed
+   ========================================================================== */
+
 .features-list {
-    list-style: none;
+    list-style: none;                /* Hides default bullet dots */
     padding: 0;
 }
 
 .features-list li {
     display: flex;
-    align-items: center;
-    margin-bottom: 8px;
+    align-items: center;             /* Vertically centers checkmark with text */
+    margin-bottom: 8px;              /* Row spacing */
     font-size: 16px;
     color: #26251e;
 }
@@ -91,16 +132,22 @@ body {
 .checkmark {
     color: #26251e;
     font-size: 14px;
-    margin-right: 10px;
+    margin-right: 10px;              /* Space between ✓ and feature text */
     font-weight: 400;
 }
 
+
+/* ==========================================================================
+   BUTTONS
+   Pill-shaped CTAs; .primary and default are visual variants
+   ========================================================================== */
+
 .download-button {
-    margin-top: auto;
+    margin-top: auto;                /* Pushes button to bottom of card */
     width: fit-content;
-    background-color: #e6e5e0;
+    background-color: #e6e5e0;       /* Secondary (default) — light gray pill */
     border: none;
-    border-radius: 999px;
+    border-radius: 999px;            /* Full pill shape */
     padding: 14px 24px;
     font-size: 16px;
     font-weight: 500;
@@ -110,13 +157,14 @@ body {
 }
 
 .download-button:hover {
-    background-color: #D8D6CE;
+    background-color: #D8D6CE;       /* Secondary hover state */
 }
 
 .download-button:active {
-    background-color: #D8D6CE;
+    background-color: #D8D6CE;       /* Secondary pressed state */
 }
 
+/* Primary variant — dark filled button (Pro plan) */
 .download-button.primary {
     background-color: #111;
     color: #fff;
@@ -130,11 +178,17 @@ body {
     background-color: #333;
 }
 
+
+/* ==========================================================================
+   PAGE LABEL (demo badge)
+   Fixed pill at top of page — not part of the pricing UI itself
+   ========================================================================== */
+
 .page-label {
     position: fixed;
     top: 16px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%);    /* Centers horizontally */
     font-size: 14px;
     color: #666;
     background: #fff;
@@ -144,5 +198,5 @@ body {
 }
 
 .page-label strong {
-    color: #333;
+    color: #333;                     /* Emphasizes "HTML version" / "JSX version" */
 }
